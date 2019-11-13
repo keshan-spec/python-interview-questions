@@ -18,11 +18,12 @@ def hasSum(dataSet, sum):
             return True
         # else, add the compliment of the current value and the sum
         comps.append(sum-data)
+        # print(f'Adding compliments : {comps}')  # comment if not needed
     return False
 
 
 ex1 = [1, 2, 3, 9]
-ex2 = [1, 8, 4, 5, 10]
-sumVal = 9
+ex2 = [1, 2, 4, 4]
+sumVal = 8
 print(hasSum(ex1, sumVal))
 print(hasSum(ex2, sumVal))
