@@ -11,8 +11,7 @@ find the first pair of duplicates, example
 import numpy as np
 import time
 
-x = np.array([1, 2, 3, 4, 2, 3])
-
+x = np.array([5,2, 3, 4 , 2, 3 ])
 
 # checks if the array is valid
 # return : [True ,False ,....]
@@ -25,17 +24,33 @@ def array_valid(array):
 def find_first_duplicate(array):
     now = time.time()
     if all(array_valid(array)):
-        hash_map = {}
+        hash_map = []
         for index, data in enumerate(array):
-            if data in hash_map.keys():
+            if data in hash_map:
                 print(f"Took {time.time() - now}s")
                 return f"Value : {data} has a duplicate in the Index : {index}"
             else:
-                hash_map[data] = 0
+                hash_map.append(data)
 
     print(f"Took {time.time() - now}s")
     return -1
 
 
-print(find_first_duplicate(x))
+# print(find_first_duplicate(x))
 
+
+# without the hash_map
+def firstDuplicate(a):
+    if all(array_valid(a)):
+        for i,_ in enumerate(a):
+            if a[abs(a[i])-1] < 0:
+                return f"First duplicate value: {abs(a[i])}"
+            else:
+                # make the value in that index negative
+                # example: n becomes -n
+                print(a[abs(a[i])-1], end=" ")
+                a[abs(a[i]) - 1] = -a[abs(a[i])-1]
+                print(a[abs(a[i])-1])
+    return -1
+
+print(firstDuplicate(x))
