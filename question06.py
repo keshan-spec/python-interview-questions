@@ -25,16 +25,11 @@ def rotate_image(img_arr):
 
     # loop over the image array
     for i, data in enumerate(img_arr):
-        for j in range(0, len(data)):
+        for j in reversed(range(0, len(data))):
             # append the vertical values of the inner arrays
             # example : [[x,y],[a,b]] -> [[x,a],[y,b]]
-            rotated[count].insert(j, img_arr[j][count])
+            rotated[count].append(img_arr[j][count])
         count += 1
-
-    # loop over the new list and reverse them to rotate 90 deg
-    # example : [[x,a],[y,b]] -> [[a,x],[b,y]]
-    for i in range(0, len(rotated)):
-        rotated[i] = list(reversed(rotated[i]))
 
     # return the rotated image array
     return rotated
