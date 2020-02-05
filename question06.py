@@ -16,7 +16,7 @@ a = [[1, 2, 3],
      [7, 8, 9]]
 
 
-# :arg - array
+# :arg - image array
 # :return - a new array of the rotated images
 def rotate_image(img_arr):
     # copy the shape of the provided array
